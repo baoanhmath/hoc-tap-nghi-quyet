@@ -31,7 +31,7 @@
             position: relative;
         }
 
-        /* ===== HEADER + MENU (ĐÃ THÊM ẢNH NỀN) ===== */
+        /* ===== HEADER + MENU ===== */
         .site-header {
             padding: 20px 30px 0 30px;
             border-bottom: 2px solid #e5e0d6;
@@ -734,6 +734,9 @@
             #page-quiz>div {
                 grid-template-columns: 1fr !important;
             }
+            .quiz-rank-wrapper {
+                grid-template-columns: 1fr !important;
+            }
         }
         @media (max-width: 480px) {
             .hero-slider {
@@ -826,6 +829,88 @@
         }
         #transcriptToggle:hover {
             color: #B32317;
+        }
+
+        /* ===== BẢNG XẾP HẠNG ===== */
+        .quiz-rank-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 30px;
+            border-top: 2px dashed #e5e0d6;
+            padding-top: 24px;
+        }
+        .rank-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        .rank-table th {
+            background: #0B1E42;
+            color: #fff;
+            padding: 8px 12px;
+            text-align: left;
+        }
+        .rank-table td {
+            padding: 8px 12px;
+            border-bottom: 1px solid #e5e0d6;
+        }
+        .rank-table tr:hover td {
+            background: #faf8f4;
+        }
+        .rank-badge {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #B32317;
+            color: #fff;
+            text-align: center;
+            line-height: 24px;
+            font-weight: 700;
+            font-size: 12px;
+        }
+        .rank-badge.gold {
+            background: #E8A317;
+        }
+        .rank-badge.silver {
+            background: #b0b0b0;
+        }
+        .rank-badge.bronze {
+            background: #cd7f32;
+        }
+        .quiz-name-input {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .quiz-name-input label {
+            font-weight: 600;
+            color: #0B1E42;
+        }
+        .quiz-name-input input {
+            padding: 8px 16px;
+            border: 2px solid #e5e0d6;
+            border-radius: 30px;
+            font-size: 15px;
+            flex: 1;
+            min-width: 180px;
+            outline: none;
+            transition: 0.2s;
+        }
+        .quiz-name-input input:focus {
+            border-color: #B32317;
+        }
+        .quiz-name-input input:disabled {
+            background: #f0ede8;
+            cursor: not-allowed;
+        }
+        .rank-empty {
+            color: #888;
+            font-style: italic;
+            padding: 12px 0;
         }
     </style>
 </head>
@@ -1293,22 +1378,53 @@
         <!-- ===== TRANG TRẮC NGHIỆM ===== -->
         <section id="page-quiz" class="page">
             <div style="display:grid; grid-template-columns:1fr 340px; gap:32px;">
+                <!-- Cột trái: câu hỏi -->
                 <div id="quizMain">
                     <h2 style="color:#0B1E42; border-bottom:4px solid #B32317; padding-bottom:12px; margin-bottom:20px;">📝 Trắc nghiệm</h2>
+
+                    <!-- Phần nhập tên -->
+                    <div class="quiz-name-input">
+                        <label for="userName"><i class="fas fa-user"></i> Họ và tên:</label>
+                        <input type="text" id="userName" placeholder="Nhập tên của bạn..." value="" />
+                    </div>
+
                     <div id="questionCounter">Câu hỏi: <span id="qCount">0</span></div>
                     <div id="questionsContainer"></div>
                     <div style="display:flex; gap:16px; margin-top:20px; flex-wrap:wrap;">
                         <button id="submitBtn" class="btn-primary" style="background:#B32317; color:#fff; border:none; padding:12px 36px; border-radius:40px; font-weight:700; cursor:pointer;">Nộp bài</button>
                         <button id="resetBtn" class="btn-secondary" style="background:#ede9e2; border:none; padding:12px 28px; border-radius:40px; font-weight:600; cursor:pointer;">Làm lại</button>
                     </div>
+
+                    <!-- Bảng xếp hạng (nằm dưới cùng) -->
+                    <div class="quiz-rank-wrapper">
+                        <div>
+                            <h3 style="font-size:18px; color:#0B1E42; margin-bottom:12px;">🏆 Bảng xếp hạng</h3>
+                            <div id="rankContainer">
+                                <div class="rank-empty">Chưa có dữ liệu</div>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 style="font-size:18px; color:#0B1E42; margin-bottom:12px;">📊 Thống kê của bạn</h3>
+                            <div id="quizStats" style="background:#faf8f4; padding:20px; border-radius:20px; border:1px solid #e5e0d6;">
+                                <div class="stat-item" style="display:flex; justify-content:space-between; padding:6px 0;">Số lượt làm <span id="totalAttempts">0</span></div>
+                                <div class="stat-item" style="display:flex; justify-content:space-between; padding:6px 0;">Điểm TB <span id="avgScore">--</span></div>
+                                <div class="stat-item" style="display:flex; justify-content:space-between; padding:6px 0;">Cao nhất <span id="maxScore">--</span></div>
+                                <div class="stat-item" style="display:flex; justify-content:space-between; padding:6px 0;">Thấp nhất <span id="minScore">--</span></div>
+                                <canvas id="scoreChart" style="width:100%; height:120px; margin-top:16px; background:#fff; border-radius:12px;"></canvas>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div id="quizStats" style="background:#faf8f4; padding:20px; border-radius:20px; border:1px solid #e5e0d6; align-self:start;">
-                    <h3 style="border-bottom:2px solid #E8A317; padding-bottom:12px; margin-bottom:16px;">📊 Thống kê</h3>
-                    <div class="stat-item" style="display:flex; justify-content:space-between; padding:6px 0;">Số lượt làm <span id="totalAttempts">0</span></div>
-                    <div class="stat-item" style="display:flex; justify-content:space-between; padding:6px 0;">Điểm TB <span id="avgScore">--</span></div>
-                    <div class="stat-item" style="display:flex; justify-content:space-between; padding:6px 0;">Cao nhất <span id="maxScore">--</span></div>
-                    <div class="stat-item" style="display:flex; justify-content:space-between; padding:6px 0;">Thấp nhất <span id="minScore">--</span></div>
-                    <canvas id="scoreChart" style="width:100%; height:120px; margin-top:16px; background:#fff; border-radius:12px;"></canvas>
+
+                <!-- Cột phải: giữ chỗ nhưng đã chuyển thống kê xuống dưới, có thể bỏ trống hoặc để thông tin phụ -->
+                <div style="background:#faf8f4; padding:20px; border-radius:20px; border:1px solid #e5e0d6; align-self:start;">
+                    <h3 style="border-bottom:2px solid #E8A317; padding-bottom:12px; margin-bottom:16px;">📌 Hướng dẫn</h3>
+                    <ul style="list-style:none; padding:0; font-size:14px; line-height:1.8; color:#444;">
+                        <li><i class="fas fa-check-circle" style="color:#B32317;"></i> Nhập tên trước khi làm</li>
+                        <li><i class="fas fa-random" style="color:#B32317;"></i> 10 câu random từ 30 câu</li>
+                        <li><i class="fas fa-clock" style="color:#B32317;"></i> Thời gian được tính từ lúc bắt đầu</li>
+                        <li><i class="fas fa-trophy" style="color:#B32317;"></i> Xếp hạng theo điểm & thời gian</li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -1503,7 +1619,7 @@
             });
         }
 
-        // 4. TRẮC NGHIỆM - NGÂN HÀNG 30 CÂU
+        // ===== 4. TRẮC NGHIỆM - NGÂN HÀNG 30 CÂU =====
         const questionBank = [
             { id: 1, q: 'NQ 06 ban hành ngày nào?', opts: ['19/5/2026', '08/6/2026', '01/5/2026', '10/6/2026'], ans: 0,
                 exp: 'Ngày 19/5/2026.' },
@@ -1619,11 +1735,13 @@
             }
         ];
 
-        // ===== CÁC HÀM XỬ LÝ TRẮC NGHIỆM =====
+        // ===== CÁC HÀM XỬ LÝ TRẮC NGHIỆM (có thêm tên và thời gian) =====
         let currentQuestions = [],
             userAnswers = {},
             isSubmitted = false,
             score = 0;
+        let startTime = null; // thời gian bắt đầu làm bài (ms)
+        let userName = '';
 
         function shuffleArray(arr) { for (let i = arr.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i +
                 1));
@@ -1631,16 +1749,159 @@
 
         function getRandomQuestions(bank, count = 10) { return shuffleArray([...bank]).slice(0, count); }
 
-        function getScores() { try { return JSON.parse(localStorage.getItem('quizScores_nq06_10')) || []; } catch { return [
+        // Lấy danh sách kết quả đã lưu (mỗi phần tử: { name, score, time (giây), date })
+        function getRankData() { try { return JSON.parse(localStorage.getItem('quizRank_nq06_10')) || []; } catch { return [
                 ]; } }
 
-        function saveScores(s) { localStorage.setItem('quizScores_nq06_10', JSON.stringify(s)); }
+        function saveRankData(data) { localStorage.setItem('quizRank_nq06_10', JSON.stringify(data)); }
 
+        // Lấy thống kê điểm (chỉ số của người dùng hiện tại)
+        function getUserStats(name) {
+            const all = getRankData();
+            const mine = all.filter(item => item.name === name);
+            if (mine.length === 0) return null;
+            const scores = mine.map(item => item.score);
+            const sum = scores.reduce((a, b) => a + b, 0);
+            return {
+                count: mine.length,
+                avg: sum / mine.length,
+                max: Math.max(...scores),
+                min: Math.min(...scores),
+                scores: scores
+            };
+        }
+
+        // Hiển thị bảng xếp hạng
+        function renderRanking() {
+            const container = document.getElementById('rankContainer');
+            const data = getRankData();
+            if (data.length === 0) {
+                container.innerHTML = '<div class="rank-empty">Chưa có dữ liệu</div>';
+                return;
+            }
+            // Sắp xếp: điểm giảm dần, nếu bằng thì thời gian tăng dần (ít giây hơn xếp trên)
+            const sorted = [...data].sort((a, b) => {
+                if (b.score !== a.score) return b.score - a.score;
+                return a.time - b.time;
+            });
+            // Lấy top 10
+            const top = sorted.slice(0, 10);
+            let html = `<table class="rank-table">
+                            <thead><tr><th>#</th><th>Họ tên</th><th>Điểm</th><th>Thời gian</th></tr></thead><tbody>`;
+            top.forEach((item, index) => {
+                const badgeClass = index === 0 ? 'gold' : index === 1 ? 'silver' : index === 2 ? 'bronze' : '';
+                const rankLabel = index < 3 ? `<span class="rank-badge ${badgeClass}">${index+1}</span>` : `${index+1}`;
+                const timeStr = formatTime(item.time);
+                html += `<tr>
+                            <td>${rankLabel}</td>
+                            <td>${escapeHtml(item.name)}</td>
+                            <td><strong>${item.score}</strong></td>
+                            <td>${timeStr}</td>
+                        </tr>`;
+            });
+            html += `</tbody></table>`;
+            if (data.length > 10) {
+                html += `<p style="font-size:13px; color:#888; margin-top:8px;">... và ${data.length - 10} người khác</p>`;
+            }
+            container.innerHTML = html;
+        }
+
+        function formatTime(seconds) {
+            const m = Math.floor(seconds / 60);
+            const s = Math.floor(seconds % 60);
+            return m > 0 ? `${m}m ${s}s` : `${s}s`;
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Cập nhật thống kê cá nhân
+        function updateUserStats() {
+            const nameInput = document.getElementById('userName');
+            const name = nameInput.value.trim();
+            if (!name) {
+                document.getElementById('totalAttempts').textContent = '0';
+                document.getElementById('avgScore').textContent = '--';
+                document.getElementById('maxScore').textContent = '--';
+                document.getElementById('minScore').textContent = '--';
+                drawChart([]);
+                return;
+            }
+            const stats = getUserStats(name);
+            if (!stats) {
+                document.getElementById('totalAttempts').textContent = '0';
+                document.getElementById('avgScore').textContent = '--';
+                document.getElementById('maxScore').textContent = '--';
+                document.getElementById('minScore').textContent = '--';
+                drawChart([]);
+                return;
+            }
+            document.getElementById('totalAttempts').textContent = stats.count;
+            document.getElementById('avgScore').textContent = stats.avg.toFixed(1);
+            document.getElementById('maxScore').textContent = stats.max;
+            document.getElementById('minScore').textContent = stats.min;
+            drawChart(stats.scores);
+        }
+
+        function drawChart(scores) {
+            const canvas = document.getElementById('scoreChart');
+            const ctx = canvas.getContext('2d');
+            const w = canvas.width || 280;
+            const h = canvas.height || 120;
+            ctx.clearRect(0, 0, w, h);
+            if (!scores || scores.length === 0) {
+                ctx.fillStyle = '#999';
+                ctx.font = '14px Inter';
+                ctx.textAlign = 'center';
+                ctx.fillText('Chưa có dữ liệu', w / 2, h / 2 + 5);
+                return;
+            }
+            const freq = Array(11).fill(0);
+            scores.forEach(s => { const idx = Math.round(s); if (idx >= 0 && idx <= 10) freq[idx]++; });
+            const maxFreq = Math.max(...freq, 1);
+            const pad = { top: 10, bottom: 20, left: 6, right: 6 };
+            const chartW = w - pad.left - pad.right,
+                chartH = h - pad.top - pad.bottom;
+            const barW = Math.min(chartW / 11, 18);
+            freq.forEach((count, i) => {
+                const x = pad.left + i * (chartW / 11) + (chartW / 11 - barW) / 2;
+                const barH = (count / maxFreq) * chartH;
+                const y = pad.top + chartH - barH;
+                ctx.fillStyle = '#B32317';
+                ctx.beginPath();
+                ctx.roundRect(x, y, barW, barH, 4);
+                ctx.fill();
+                if (count > 0) {
+                    ctx.fillStyle = '#0B1E42';
+                    ctx.font = '9px Inter';
+                    ctx.textAlign = 'center';
+                    ctx.fillText(count, x + barW / 2, y - 3);
+                }
+            });
+            ctx.fillStyle = '#888';
+            ctx.font = '8px Inter';
+            ctx.textAlign = 'center';
+            for (let i = 0; i <= 10; i += 2) {
+                const x = pad.left + i * (chartW / 10);
+                ctx.fillText(i, x, h - 2);
+            }
+        }
+
+        // ==== RENDER QUIZ ====
         function renderQuiz() {
             if (!currentQuestions.length) currentQuestions = getRandomQuestions(questionBank, 10);
             isSubmitted = false;
             userAnswers = {};
+            // Bắt đầu tính thời gian
+            startTime = Date.now();
+            // Kích hoạt input tên
+            document.getElementById('userName').disabled = false;
+            document.getElementById('userName').value = userName || '';
             document.getElementById('qCount').textContent = currentQuestions.length;
+
             const container = document.getElementById('questionsContainer');
             let html = '';
             currentQuestions.forEach((q, idx) => {
@@ -1666,17 +1927,35 @@
             document.getElementById('submitBtn').disabled = false;
             document.getElementById('submitBtn').innerHTML = 'Nộp bài';
             document.querySelector('.result-summary')?.remove();
-            updateStats();
+
+            // Cập nhật thống kê và bảng xếp hạng
+            updateUserStats();
+            renderRanking();
         }
 
+        // ==== NỘP BÀI ====
         function submitQuiz() {
             if (isSubmitted) return;
+            const nameInput = document.getElementById('userName');
+            const name = nameInput.value.trim();
+            if (!name) {
+                alert('Vui lòng nhập họ và tên trước khi nộp bài.');
+                nameInput.focus();
+                return;
+            }
+            userName = name;
+
             const total = currentQuestions.length;
             const selected = Object.keys(userAnswers).length;
             if (selected < total && !confirm(`Bạn mới trả lời ${selected}/${total} câu. Nộp bài?`)) return;
             isSubmitted = true;
             document.getElementById('submitBtn').disabled = true;
             document.getElementById('submitBtn').innerHTML = 'Đang chấm...';
+            // Vô hiệu hóa input tên
+            nameInput.disabled = true;
+
+            // Tính thời gian hoàn thành (giây)
+            const elapsed = (Date.now() - startTime) / 1000;
 
             let correct = 0;
             const items = document.querySelectorAll('.q-item');
@@ -1721,82 +2000,27 @@
             summary.style.cssText =
                 'background:#0B1E42; color:#fff; padding:16px 24px; border-radius:16px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; margin-bottom:20px;';
             summary.innerHTML =
-                `<div><span style="font-size:28px; font-weight:800;">Điểm: <span style="color:#E8A317;">${score}</span> / 10</span> <span style="font-size:14px; opacity:0.8;">(Đúng ${correct}/${total})</span></div><div style="background:#E8A317; color:#0B1E42; padding:4px 20px; border-radius:40px; font-weight:700;">${rank}</div>`;
+                `<div><span style="font-size:28px; font-weight:800;">Điểm: <span style="color:#E8A317;">${score}</span> / 10</span> <span style="font-size:14px; opacity:0.8;">(Đúng ${correct}/${total})</span> <span style="font-size:14px; opacity:0.7; margin-left:12px;"><i class="far fa-clock"></i> ${formatTime(elapsed)}</span></div><div style="background:#E8A317; color:#0B1E42; padding:4px 20px; border-radius:40px; font-weight:700;">${rank}</div>`;
             document.getElementById('questionsContainer').parentNode.insertBefore(summary, document.getElementById(
                 'questionsContainer'));
             document.getElementById('submitBtn').innerHTML = 'Đã nộp';
 
-            const scores = getScores();
-            scores.push(score);
-            saveScores(scores);
-            updateStats();
+            // Lưu kết quả vào bảng xếp hạng
+            const rankData = getRankData();
+            rankData.push({ name: userName, score: score, time: elapsed, date: new Date().toISOString() });
+            saveRankData(rankData);
+
+            // Cập nhật lại bảng xếp hạng và thống kê
+            renderRanking();
+            updateUserStats();
         }
 
+        // ==== RESET ====
         function resetQuiz() {
             document.querySelector('.result-summary')?.remove();
+            document.getElementById('userName').disabled = false;
             currentQuestions = getRandomQuestions(questionBank, 10);
             renderQuiz();
-        }
-
-        function updateStats() {
-            const scores = getScores();
-            document.getElementById('totalAttempts').textContent = scores.length;
-            if (scores.length === 0) {
-                document.getElementById('avgScore').textContent = '--';
-                document.getElementById('maxScore').textContent = '--';
-                document.getElementById('minScore').textContent = '--';
-                drawChart([]);
-                return;
-            }
-            const sum = scores.reduce((a, b) => a + b, 0);
-            document.getElementById('avgScore').textContent = (sum / scores.length).toFixed(1);
-            document.getElementById('maxScore').textContent = Math.max(...scores);
-            document.getElementById('minScore').textContent = Math.min(...scores);
-            drawChart(scores);
-        }
-
-        function drawChart(scores) {
-            const canvas = document.getElementById('scoreChart');
-            const ctx = canvas.getContext('2d');
-            const w = canvas.width || 280;
-            const h = canvas.height || 120;
-            ctx.clearRect(0, 0, w, h);
-            if (scores.length === 0) {
-                ctx.fillStyle = '#999';
-                ctx.font = '14px Inter';
-                ctx.textAlign = 'center';
-                ctx.fillText('Chưa có dữ liệu', w / 2, h / 2 + 5);
-                return;
-            }
-            const freq = Array(11).fill(0);
-            scores.forEach(s => { const idx = Math.round(s); if (idx >= 0 && idx <= 10) freq[idx]++; });
-            const maxFreq = Math.max(...freq, 1);
-            const pad = { top: 10, bottom: 20, left: 6, right: 6 };
-            const chartW = w - pad.left - pad.right,
-                chartH = h - pad.top - pad.bottom;
-            const barW = Math.min(chartW / 11, 18);
-            freq.forEach((count, i) => {
-                const x = pad.left + i * (chartW / 11) + (chartW / 11 - barW) / 2;
-                const barH = (count / maxFreq) * chartH;
-                const y = pad.top + chartH - barH;
-                ctx.fillStyle = '#B32317';
-                ctx.beginPath();
-                ctx.roundRect(x, y, barW, barH, 4);
-                ctx.fill();
-                if (count > 0) {
-                    ctx.fillStyle = '#0B1E42';
-                    ctx.font = '9px Inter';
-                    ctx.textAlign = 'center';
-                    ctx.fillText(count, x + barW / 2, y - 3);
-                }
-            });
-            ctx.fillStyle = '#888';
-            ctx.font = '8px Inter';
-            ctx.textAlign = 'center';
-            for (let i = 0; i <= 10; i += 2) {
-                const x = pad.left + i * (chartW / 10);
-                ctx.fillText(i, x, h - 2);
-            }
         }
 
         // Polyfill roundRect
@@ -1826,15 +2050,24 @@
             document.getElementById('submitBtn').addEventListener('click', submitQuiz);
             document.getElementById('resetBtn').addEventListener('click', resetQuiz);
 
+            // Cập nhật thống kê khi thay đổi tên
+            document.getElementById('userName').addEventListener('input', function() {
+                userName = this.value.trim();
+                updateUserStats();
+                // Nếu đã nộp bài thì không cho đổi tên
+                if (isSubmitted) this.disabled = true;
+            });
+
             const canvas = document.getElementById('scoreChart');
             canvas.width = canvas.parentElement.clientWidth - 32 || 280;
             canvas.height = 120;
-            updateStats();
+            updateUserStats();
+            renderRanking();
 
             window.addEventListener('resize', () => {
                 canvas.width = canvas.parentElement.clientWidth - 32 || 280;
                 canvas.height = 120;
-                updateStats();
+                updateUserStats();
             });
 
             // Solution buttons
