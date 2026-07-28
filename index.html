@@ -35,22 +35,20 @@
         .site-header {
             padding: 20px 30px 0 30px;
             border-bottom: 2px solid #e5e0d6;
-            /* Thêm ảnh nền */
             background-image: url('1455a0b2-210d-4b66-abd8-582a61369521.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             position: relative;
         }
-        /* Lớp phủ mờ để chữ dễ đọc */
         .site-header::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: rgba(255, 255, 255, 0.75);
+            background: rgba(255, 255, 255, 0.78);
             z-index: 0;
         }
-        .site-header > * {
+        .site-header>* {
             position: relative;
             z-index: 1;
         }
@@ -140,7 +138,7 @@
         .main-menu li a:hover,
         .main-menu li a.active {
             color: #B32317;
-            background: rgba(255,255,255,0.8);
+            background: rgba(255, 255, 255, 0.8);
             border-bottom-color: #B32317;
         }
 
@@ -154,8 +152,14 @@
             display: block;
         }
         @keyframes fadePage {
-            from { opacity: 0; transform: translateY(12px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* ===== TRANG CHỦ ===== */
@@ -179,7 +183,9 @@
             transition: opacity 0.8s ease;
             color: #fff;
         }
-        .hero-slider .slide.active { opacity: 1; }
+        .hero-slider .slide.active {
+            opacity: 1;
+        }
         .hero-slider .slide .content {
             max-width: 600px;
             background: rgba(11, 30, 66, 0.6);
@@ -188,8 +194,15 @@
             border-radius: 20px;
             border-left: 6px solid #E8A317;
         }
-        .hero-slider .slide h2 { font-size: 32px; font-weight: 800; margin-bottom: 10px; }
-        .hero-slider .slide p { font-size: 18px; opacity: 0.9; }
+        .hero-slider .slide h2 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        .hero-slider .slide p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
         .hero-slider .slide .tag {
             display: inline-block;
             background: #E8A317;
@@ -210,9 +223,10 @@
             z-index: 2;
         }
         .slider-dots .dot {
-            width: 12px; height: 12px;
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
-            background: rgba(255,255,255,0.4);
+            background: rgba(255, 255, 255, 0.4);
             cursor: pointer;
             border: none;
             transition: 0.3s;
@@ -237,14 +251,30 @@
         }
         .home-intro .card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 28px rgba(0,0,0,0.06);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
         }
-        .home-intro .card .icon { font-size: 32px; color: #B32317; margin-bottom: 12px; }
-        .home-intro .card h3 { font-size: 20px; color: #0B1E42; margin-bottom: 8px; }
-        .home-intro .card p { font-size: 15px; color: #555; line-height: 1.6; }
+        .home-intro .card .icon {
+            font-size: 32px;
+            color: #B32317;
+            margin-bottom: 12px;
+        }
+        .home-intro .card h3 {
+            font-size: 20px;
+            color: #0B1E42;
+            margin-bottom: 8px;
+        }
+        .home-intro .card p {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.6;
+        }
 
         /* ===== NỘI DUNG CÁC TRANG KHÁC ===== */
-        .infographic-wrapper { background: #fff; border-radius: 24px; padding: 20px 0; }
+        .infographic-wrapper {
+            background: #fff;
+            border-radius: 24px;
+            padding: 20px 0;
+        }
 
         /* ===== NỘI DUNG BỔ SUNG CHO NQ06 & NQ10 ===== */
         .core-content {
@@ -289,12 +319,12 @@
             color: #0B1E42;
             border-bottom: 4px solid #B32317;
             transition: 0.25s;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
         }
         .six-dam-grid .dam-item:hover {
             transform: translateY(-4px);
             border-bottom-color: #E8A317;
-            box-shadow: 0 8px 24px rgba(179,35,23,0.10);
+            box-shadow: 0 8px 24px rgba(179, 35, 23, 0.10);
         }
         .six-dam-grid .dam-item .num {
             display: block;
@@ -555,7 +585,7 @@
         .situation-card:hover {
             background: #fef6f0;
             transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
         }
         .situation-card .situ-tag {
             display: inline-block;
@@ -635,48 +665,174 @@
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
-            .site-header { padding: 15px 16px 0; }
-            .header-top { flex-direction: column; align-items: stretch; }
-            .logo-area .brand { font-size: 17px; }
-            .logo-area .brand .sub { font-size: 13px; }
-            .main-menu { overflow-x: auto; flex-wrap: nowrap; gap: 2px; padding-bottom: 4px; }
-            .main-menu li a { padding: 8px 14px; font-size: 13px; white-space: nowrap; }
-            .page { padding: 20px 16px; }
-            .hero-slider { height: 300px; }
-            .hero-slider .slide { padding: 24px; }
-            .hero-slider .slide .content { padding: 20px; }
-            .hero-slider .slide h2 { font-size: 24px; }
-            .hero-slider .slide p { font-size: 16px; }
-            .six-dam-grid { grid-template-columns: repeat(2, 1fr); }
-            .four-tasks { grid-template-columns: 1fr; }
-            .speech-wrapper .speech-header h2 { font-size: 22px; }
-            .speech-wrapper .speech-body { font-size: 15px; }
-            .speech-wrapper .speech-body h3 { font-size: 20px; }
-            .action-grid { grid-template-columns: 1fr; }
-            .situation-grid { grid-template-columns: 1fr; }
-            .podcast-iframe-wrapper iframe { height: 280px; }
+            .site-header {
+                padding: 15px 16px 0;
+            }
+            .header-top {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .logo-area .brand {
+                font-size: 17px;
+            }
+            .logo-area .brand .sub {
+                font-size: 13px;
+            }
+            .main-menu {
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                gap: 2px;
+                padding-bottom: 4px;
+            }
+            .main-menu li a {
+                padding: 8px 14px;
+                font-size: 13px;
+                white-space: nowrap;
+            }
+            .page {
+                padding: 20px 16px;
+            }
+            .hero-slider {
+                height: 300px;
+            }
+            .hero-slider .slide {
+                padding: 24px;
+            }
+            .hero-slider .slide .content {
+                padding: 20px;
+            }
+            .hero-slider .slide h2 {
+                font-size: 24px;
+            }
+            .hero-slider .slide p {
+                font-size: 16px;
+            }
+            .six-dam-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .four-tasks {
+                grid-template-columns: 1fr;
+            }
+            .speech-wrapper .speech-header h2 {
+                font-size: 22px;
+            }
+            .speech-wrapper .speech-body {
+                font-size: 15px;
+            }
+            .speech-wrapper .speech-body h3 {
+                font-size: 20px;
+            }
+            .action-grid {
+                grid-template-columns: 1fr;
+            }
+            .situation-grid {
+                grid-template-columns: 1fr;
+            }
+            .podcast-iframe-wrapper iframe {
+                height: 280px;
+            }
+            #page-quiz>div {
+                grid-template-columns: 1fr !important;
+            }
         }
         @media (max-width: 480px) {
-            .hero-slider { height: 250px; }
-            .hero-slider .slide h2 { font-size: 20px; }
-            .hero-slider .slide p { font-size: 14px; }
-            .home-intro { grid-template-columns: 1fr; }
-            .six-dam-grid { grid-template-columns: 1fr 1fr; }
-            .speech-wrapper .speech-header h2 { font-size: 19px; }
-            .logo-area .brand { font-size: 15px; }
-            .logo-area .brand .sub { font-size: 11px; }
-            .podcast-iframe-wrapper iframe { height: 240px; }
+            .hero-slider {
+                height: 250px;
+            }
+            .hero-slider .slide h2 {
+                font-size: 20px;
+            }
+            .hero-slider .slide p {
+                font-size: 14px;
+            }
+            .home-intro {
+                grid-template-columns: 1fr;
+            }
+            .six-dam-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .speech-wrapper .speech-header h2 {
+                font-size: 19px;
+            }
+            .logo-area .brand {
+                font-size: 15px;
+            }
+            .logo-area .brand .sub {
+                font-size: 11px;
+            }
+            .podcast-iframe-wrapper iframe {
+                height: 240px;
+            }
         }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* ===== QUIZ STYLES ===== */
+        .q-item label {
+            transition: 0.2s;
+        }
+        .q-item label:hover {
+            border-color: #B32317 !important;
+            background: #fef6f0 !important;
+        }
+        .q-item input[type="radio"] {
+            accent-color: #B32317;
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+        .stat-item {
+            border-bottom: 1px solid #e5e0d6;
+        }
+        .stat-item:last-child {
+            border-bottom: none;
+        }
+        #scoreChart {
+            width: 100% !important;
+            height: 120px !important;
+            background: #fff;
+            border-radius: 12px;
+        }
+        .result-summary {
+            animation: fadeIn 0.4s ease;
+        }
+        /* Podcast player */
+        .ep-item {
+            transition: all 0.2s;
+        }
+        .ep-item:hover {
+            background: #f3efe7 !important;
+            border-color: #B32317 !important;
+        }
+        .ep-item.active-ep {
+            border-color: #B32317 !important;
+            background: #fef6f0 !important;
+        }
+        #transcriptBody {
+            transition: max-height 0.4s ease, padding 0.3s ease;
+        }
+        #transcriptBody.show {
+            padding: 12px !important;
+        }
+        #transcriptToggle {
+            transition: 0.2s;
+        }
+        #transcriptToggle:hover {
+            color: #B32317;
         }
     </style>
 </head>
 <body>
     <div id="app">
 
-        <!-- ===== HEADER + MENU (ĐÃ CÓ ẢNH NỀN) ===== -->
+        <!-- ===== HEADER + MENU ===== -->
         <header class="site-header">
             <div class="header-top">
                 <div class="logo-area">
@@ -689,9 +845,9 @@
                     </div>
                 </div>
                 <div class="header-actions">
-                    <button class="btn-icon" title="Nghe Podcast"><i class="fas fa-headphones"></i></button>
-                    <button class="btn-icon gold" title="Đổi giao diện"><i class="fas fa-adjust"></i></button>
-                    <button class="btn-icon" title="Tìm kiếm"><i class="fas fa-search"></i></button>
+                    <button class="btn-icon" title="Nghe Podcast" onclick="document.querySelector('.main-menu a[data-page=\'podcast\']')?.click()"><i class="fas fa-headphones"></i></button>
+                    <button class="btn-icon gold" title="Đổi giao diện" onclick="alert('Chức năng đang được phát triển')"><i class="fas fa-adjust"></i></button>
+                    <button class="btn-icon" title="Tìm kiếm" onclick="alert('Chức năng đang được phát triển')"><i class="fas fa-search"></i></button>
                 </div>
             </div>
             <nav>
@@ -748,7 +904,7 @@
                 <div class="card">
                     <div class="icon"><i class="fas fa-check-circle"></i></div>
                     <h3>Trắc nghiệm</h3>
-                    <p>22 câu hỏi, random 10 câu. Chấm điểm, giải thích, thống kê học tập.</p>
+                    <p>30 câu hỏi, random 10 câu. Chấm điểm, giải thích, thống kê học tập.</p>
                 </div>
             </div>
         </section>
@@ -855,7 +1011,6 @@
                         </a>
                     </div>
                 </div>
-                <!-- ===== KẾT THÚC BÀI PHÁT BIỂU ===== -->
 
                 <!-- ===== NỘI DUNG BỔ SUNG: TINH THẦN CỐT LÕI NQ06 ===== -->
                 <div class="core-content">
@@ -900,7 +1055,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- ===== KẾT THÚC NỘI DUNG BỔ SUNG ===== -->
 
                 <!-- ===== GÓC VẬN DỤNG & TÌNH HUỐNG NQ06 ===== -->
                 <div class="practice-wrapper">
@@ -970,8 +1124,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- ===== KẾT THÚC GÓC VẬN DỤNG NQ06 ===== -->
-
             </div>
         </section>
 
@@ -1057,7 +1209,6 @@
                     </div>
                 </div>
             </div>
-            <!-- ===== KẾT THÚC NỘI DUNG BỔ SUNG NQ10 ===== -->
 
             <!-- ===== GÓC VẬN DỤNG & TÌNH HUỐNG NQ10 ===== -->
             <div class="practice-wrapper">
@@ -1129,8 +1280,6 @@
                     </div>
                 </div>
             </div>
-            <!-- ===== KẾT THÚC GÓC VẬN DỤNG NQ10 ===== -->
-
         </section>
 
         <!-- ===== TRANG PODCAST ===== -->
@@ -1221,42 +1370,49 @@
         let slideIndex = 0;
         const slides = document.querySelectorAll('.hero-slider .slide');
         const dots = document.querySelectorAll('.slider-dots .dot');
+        let sliderInterval;
+
         function showSlide(index) {
             slides.forEach((s, i) => s.classList.toggle('active', i === index));
             dots.forEach((d, i) => d.classList.toggle('active', i === index));
         }
+
+        function startSlider() {
+            if (sliderInterval) clearInterval(sliderInterval);
+            sliderInterval = setInterval(() => {
+                slideIndex = (slideIndex + 1) % slides.length;
+                showSlide(slideIndex);
+            }, 5000);
+        }
+
         dots.forEach(dot => {
             dot.addEventListener('click', function() {
                 slideIndex = parseInt(this.dataset.slide);
                 showSlide(slideIndex);
+                clearInterval(sliderInterval);
+                startSlider();
             });
         });
-        setInterval(() => {
-            slideIndex = (slideIndex + 1) % slides.length;
-            showSlide(slideIndex);
-        }, 5000);
+        startSlider();
 
         // 3. PODCAST
-        const episodes = [
-            { 
-                id: 2, 
-                title: 'NQ 06 – Đối ngoại tiên phong', 
-                desc: 'Phân tích 5 định hướng lớn', 
-                type: 'iframe',
-                iframe: '<iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/1c2d7rJsJ8K4ezkIiEF4mr?utm_source=generator&si=2b78d48a72ce4a5b" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>',
-                cover: 'https://picsum.photos/seed/pod2/200/200',
-                transcript: '<p><span style="color:#B32317;">[00:00]</span> NQ 06 được ban hành ngày 19/5/2026.</p>'
-            },
-            { 
-                id: 3, 
-                title: 'NQ 10 – Kinh tế FDI', 
-                desc: 'Mục tiêu 2030 và 2045', 
-                type: 'iframe',
-                iframe: '<iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/7szZmv6exxLdiFyOEuitmE?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>',
-                cover: 'https://picsum.photos/seed/pod3/200/200', 
-                transcript: '<p><span style="color:#B32317;">[00:00]</span> NQ 10 về phát triển kinh tế có vốn FDI.</p>'
-            }
-        ];
+        const episodes = [{
+            id: 2,
+            title: 'NQ 06 – Đối ngoại tiên phong',
+            desc: 'Phân tích 5 định hướng lớn',
+            type: 'iframe',
+            iframe: '<iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/1c2d7rJsJ8K4ezkIiEF4mr?utm_source=generator&si=2b78d48a72ce4a5b" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>',
+            cover: 'https://picsum.photos/seed/pod2/200/200',
+            transcript: '<p><span style="color:#B32317;">[00:00]</span> NQ 06 được ban hành ngày 19/5/2026. Đánh dấu bước chuyển từ ngoại giao bảo vệ sang kiến tạo.</p><p><span style="color:#B32317;">[02:30]</span> 5 định hướng lớn: tiên phong bảo vệ Tổ quốc, động lực phát triển, trách nhiệm toàn cầu, nâng tầm vị thế, ngoại giao hiện đại.</p><p><span style="color:#B32317;">[05:00]</span> 4 nhiệm vụ trọng tâm: toàn Đảng – toàn dân – toàn quân vào cuộc, chương trình hành động cụ thể, phối hợp liên ngành, xây dựng đội ngũ cán bộ bản lĩnh.</p>'
+        }, {
+            id: 3,
+            title: 'NQ 10 – Kinh tế FDI',
+            desc: 'Mục tiêu 2030 và 2045',
+            type: 'iframe',
+            iframe: '<iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/7szZmv6exxLdiFyOEuitmE?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>',
+            cover: 'https://picsum.photos/seed/pod3/200/200',
+            transcript: '<p><span style="color:#B32317;">[00:00]</span> NQ 10 về phát triển kinh tế có vốn FDI, ban hành ngày 08/6/2026.</p><p><span style="color:#B32317;">[01:30]</span> Mục tiêu 2030: vốn đăng ký 200–300 tỉ USD, tỉ lệ nội địa hóa 45–50%, 10.000 DN tham gia chuỗi cung ứng.</p><p><span style="color:#B32317;">[04:00]</span> Mục tiêu 2045: FDI đóng góp 30% GDP, Việt Nam trở thành nước phát triển, thu nhập cao.</p>'
+        }];
         let currentEp = null;
 
         function renderPodcast() {
@@ -1265,52 +1421,75 @@
             html += `<div style="display:flex; flex-direction:column; gap:16px;">`;
             episodes.forEach((ep, i) => {
                 html += `
-                    <div class="ep-item" data-id="${ep.id}" style="display:flex; gap:16px; background:#f9f7f2; padding:14px 18px; border-radius:16px; cursor:pointer; align-items:center; border:2px solid transparent;">
-                        <img src="${ep.cover}" style="width:70px; height:70px; border-radius:12px; object-fit:cover;" />
-                        <div style="flex:1;"><div style="font-weight:700; color:#0B1E42;">${ep.title}</div><div style="font-size:14px; color:#666;">${ep.desc}</div></div>
-                        <button class="play-sm" data-id="${ep.id}" style="background:#B32317; color:#fff; border:none; width:40px; height:40px; border-radius:50%; cursor:pointer;"><i class="fas fa-play"></i></button>
-                    </div>
-                `;
+                        <div class="ep-item" data-idx="${i}" style="display:flex; gap:16px; background:#f9f7f2; padding:14px 18px; border-radius:16px; cursor:pointer; align-items:center; border:2px solid transparent; transition:0.2s;">
+                            <img src="${ep.cover}" style="width:70px; height:70px; border-radius:12px; object-fit:cover;" />
+                            <div style="flex:1;"><div style="font-weight:700; color:#0B1E42;">${ep.title}</div><div style="font-size:14px; color:#666;">${ep.desc}</div></div>
+                            <button class="play-sm" data-idx="${i}" style="background:#B32317; color:#fff; border:none; width:40px; height:40px; border-radius:50%; cursor:pointer; transition:0.2s;"><i class="fas fa-play"></i></button>
+                        </div>
+                    `;
             });
             html += `</div>`;
             html += `
-                <div style="background:#faf8f4; padding:20px; border-radius:20px; border:1px solid #e5e0d6; position:sticky; top:20px;">
-                    <div id="playerTitle" style="font-weight:700; font-size:18px; color:#0B1E42;">Chọn tập</div>
-                    <div id="playerSub" style="font-size:14px; color:#666;">Nhấn vào tập để nghe</div>
-                    <div id="playerArt" style="width:100%; aspect-ratio:1/1; background:#d0cbc2; border-radius:16px; margin:12px 0; display:flex; align-items:center; justify-content:center; font-size:48px; color:#fff;">🎧</div>
-                    <div id="playerContent">
-                        <!-- Nội dung iframe sẽ được loadEpisode thay đổi -->
+                    <div style="background:#faf8f4; padding:20px; border-radius:20px; border:1px solid #e5e0d6; position:sticky; top:20px;">
+                        <div id="playerTitle" style="font-weight:700; font-size:18px; color:#0B1E42;">Chọn tập</div>
+                        <div id="playerSub" style="font-size:14px; color:#666;">Nhấn vào tập để nghe</div>
+                        <div id="playerArt" style="width:100%; aspect-ratio:1/1; background:#d0cbc2; border-radius:16px; margin:12px 0; display:flex; align-items:center; justify-content:center; font-size:48px; color:#fff;">🎧</div>
+                        <div id="playerContent">
+                        </div>
+                        <div style="margin-top:16px; border-top:1px solid #e5e0d6; padding-top:12px;">
+                            <div id="transcriptToggle" style="font-weight:600; cursor:pointer; color:#0B1E42; display:flex; align-items:center; gap:8px;">
+                                <i class="fas fa-chevron-down" style="transition:transform 0.3s;"></i> Transcript
+                            </div>
+                            <div id="transcriptBody" style="max-height:0; overflow:hidden; transition:max-height 0.4s ease, padding 0.3s ease; font-size:14px; color:#333; background:#f3efe7; border-radius:8px; padding:0 12px;"></div>
+                        </div>
                     </div>
-                    <div style="margin-top:16px; border-top:1px solid #e5e0d6; padding-top:12px;">
-                        <div id="transcriptToggle" style="font-weight:600; cursor:pointer; color:#0B1E42;"><i class="fas fa-chevron-down"></i> Transcript</div>
-                        <div id="transcriptBody" style="max-height:0; overflow:hidden; transition:max-height 0.3s; font-size:14px; color:#333; background:#f3efe7; border-radius:8px; padding:0 12px;"></div>
-                    </div>
-                </div>
-            `;
+                `;
             html += `</div>`;
             container.innerHTML = html;
 
-            document.querySelectorAll('.ep-item').forEach((el, idx) => el.addEventListener('click', () => loadEpisode(idx)));
-            document.querySelectorAll('.play-sm').forEach((btn, idx) => btn.addEventListener('click', (e) => { e.stopPropagation(); loadEpisode(idx); }));
-
-            document.getElementById('transcriptToggle')?.addEventListener('click', function() { 
-                const body = document.getElementById('transcriptBody'); 
-                const isOpen = body.style.maxHeight; 
-                body.style.maxHeight = isOpen ? '0' : '300px'; 
-                this.querySelector('i').style.transform = isOpen ? 'rotate(0)' : 'rotate(180deg)'; 
+            // Event listeners
+            document.querySelectorAll('.ep-item').forEach((el) => {
+                el.addEventListener('click', function() {
+                    loadEpisode(parseInt(this.dataset.idx));
+                });
             });
+            document.querySelectorAll('.play-sm').forEach((btn) => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    loadEpisode(parseInt(this.dataset.idx));
+                });
+            });
+
+            const toggle = document.getElementById('transcriptToggle');
+            const body = document.getElementById('transcriptBody');
+            if (toggle && body) {
+                toggle.addEventListener('click', function() {
+                    const isOpen = body.style.maxHeight && body.style.maxHeight !== '0px';
+                    body.style.maxHeight = isOpen ? '0' : '400px';
+                    body.classList.toggle('show', !isOpen);
+                    this.querySelector('i').style.transform = isOpen ? 'rotate(0)' : 'rotate(180deg)';
+                });
+            }
             loadEpisode(0);
         }
 
         function loadEpisode(idx) {
-            const ep = episodes[idx]; 
+            const ep = episodes[idx];
+            if (!ep) return;
             currentEp = ep;
             document.getElementById('playerTitle').textContent = ep.title;
             document.getElementById('playerSub').textContent = ep.desc;
-            document.getElementById('playerArt').innerHTML = `<img src="${ep.cover}" style="width:100%; height:100%; object-fit:cover; border-radius:16px;" />`;
-            document.getElementById('transcriptBody').innerHTML = ep.transcript || '<p>Chưa có transcript.</p>';
+            document.getElementById('playerArt').innerHTML =
+                `<img src="${ep.cover}" style="width:100%; height:100%; object-fit:cover; border-radius:16px;" />`;
+            const body = document.getElementById('transcriptBody');
+            if (body) {
+                body.innerHTML = ep.transcript || '<p>Chưa có transcript.</p>';
+                body.style.maxHeight = '0';
+                body.classList.remove('show');
+                const toggle = document.getElementById('transcriptToggle');
+                if (toggle) toggle.querySelector('i').style.transform = 'rotate(0)';
+            }
 
-            // Hiển thị iframe
             const contentDiv = document.getElementById('playerContent');
             if (ep.type === 'iframe') {
                 contentDiv.innerHTML = `<div class="podcast-iframe-wrapper">${ep.iframe}</div>`;
@@ -1318,61 +1497,172 @@
                 contentDiv.innerHTML = '<p style="color:#999; text-align:center; padding:20px;">Định dạng không hỗ trợ.</p>';
             }
 
-            // Highlight active
-            document.querySelectorAll('.ep-item').forEach((el, i) => { el.style.borderColor = (i === idx) ? '#B32317' : 'transparent'; });
+            document.querySelectorAll('.ep-item').forEach((el, i) => {
+                el.classList.toggle('active-ep', i === idx);
+                el.style.borderColor = (i === idx) ? '#B32317' : 'transparent';
+            });
         }
 
-        // 4. TRẮC NGHIỆM
+        // 4. TRẮC NGHIỆM - NGÂN HÀNG 30 CÂU
         const questionBank = [
-            { id: 1, q: 'NQ 06 ban hành ngày nào?', opts: ['19/5/2026', '08/6/2026', '01/5/2026'], ans: 0, exp: 'Ngày 19/5/2026.' },
-            { id: 2, q: 'NQ 06 có bao nhiêu định hướng?', opts: ['3', '4', '5'], ans: 2, exp: '5 định hướng.' },
-            { id: 3, q: 'NQ 10 ban hành ngày nào?', opts: ['19/5/2026', '08/6/2026', '08/5/2026'], ans: 1, exp: 'Ngày 08/6/2026.' },
-            { id: 4, q: 'Đến 2030, FDI đăng ký khoảng?', opts: ['100–150 tỉ', '200–300 tỉ', '300–400 tỉ'], ans: 1, exp: '200–300 tỉ USD.' },
-            { id: 5, q: 'Đến 2045, FDI đóng góp bao nhiêu % GDP?', opts: ['20%', '25%', '30%'], ans: 2, exp: '30% GDP.' },
-            { id: 6, q: '"6 dám" là yêu cầu cho ai?', opts: ['Cán bộ đối ngoại', 'Doanh nghiệp', 'Học sinh'], ans: 0, exp: 'Cán bộ đối ngoại.' },
-            { id: 7, q: 'NQ 06 xác định đối ngoại là sự nghiệp của?', opts: ['Toàn Đảng, toàn dân, toàn quân', 'Chỉ ngành ngoại giao', 'Chính phủ'], ans: 0, exp: 'Toàn Đảng, toàn dân, toàn quân.' },
-            { id: 8, q: 'NQ 10 có bao nhiêu quan điểm chỉ đạo?', opts: ['4', '5', '6'], ans: 2, exp: '6 quan điểm.' },
-            { id: 9, q: 'Đến 2030, tỉ lệ nội địa hóa đạt?', opts: ['30–35%', '45–50%', '55–60%'], ans: 1, exp: '45–50%.' },
-            { id: 10, q: 'Đến 2030, bao nhiêu DN tham gia chuỗi cung ứng FDI?', opts: ['5.000', '10.000', '15.000'], ans: 1, exp: '10.000 DN.' },
-            { id: 11, q: 'NQ 06 nhấn mạnh "ngoại giao công nghệ" tập trung vào?', opts: ['AI, chuyển đổi số', 'Nông nghiệp', 'Dệt may'], ans: 0, exp: 'AI, chuyển đổi số, dữ liệu lớn.' },
-            { id: 12, q: '"Thực lực như cái chiêng..." là câu nói của ai?', opts: ['Hồ Chí Minh', 'Võ Nguyên Giáp', 'Tô Lâm'], ans: 0, exp: 'Chủ tịch Hồ Chí Minh.' },
-            { id: 13, q: 'Đến 2030, lao động qua đào tạo trong FDI đạt?', opts: ['60%', '70%', '80%'], ans: 2, exp: '80%.' },
-            { id: 14, q: 'NQ 06 đề ra mấy nhiệm vụ trọng tâm?', opts: ['3', '4', '5'], ans: 1, exp: '4 nhiệm vụ.' },
-            { id: 15, q: 'NQ 10 khuyến khích hình thành trung tâm nào?', opts: ['Tài chính quốc tế', 'Thể thao', 'Giải trí'], ans: 0, exp: 'Trung tâm tài chính quốc tế.' },
-            { id: 16, q: 'Đến 2030, KCN sinh thái chiếm?', opts: ['5%', '8%', '10%'], ans: 2, exp: '10%.' },
-            { id: 17, q: 'Cơ quan ban hành NQ 06 và 10?', opts: ['Bộ Chính trị', 'Chính phủ', 'Quốc hội'], ans: 0, exp: 'Bộ Chính trị.' },
-            { id: 18, q: '"Vừa hồng, vừa chuyên" là yêu cầu cho ai?', opts: ['Cán bộ đối ngoại', 'Công nhân', 'Nông dân'], ans: 0, exp: 'Cán bộ đối ngoại.' },
-            { id: 19, q: 'NQ 10 chuyển từ ưu đãi đầu vào sang ưu đãi gắn với?', opts: ['Kết quả thực hiện', 'Số vốn đăng ký', 'Diện tích đất'], ans: 0, exp: 'Kết quả thực hiện cam kết.' },
-            { id: 20, q: 'NQ 06 khẳng định đối ngoại phải trở thành lực lượng gì?', opts: ['Tiên phong kiến tạo', 'Bảo vệ chủ quyền', 'Mở rộng lãnh thổ'], ans: 0, exp: 'Tiên phong kiến tạo không gian phát triển mới.' }
+            { id: 1, q: 'NQ 06 ban hành ngày nào?', opts: ['19/5/2026', '08/6/2026', '01/5/2026', '10/6/2026'], ans: 0,
+                exp: 'Ngày 19/5/2026.' },
+            { id: 2, q: 'NQ 06 có bao nhiêu định hướng?', opts: ['3', '4', '5', '6'], ans: 2, exp: '5 định hướng.' },
+            { id: 3, q: 'NQ 10 ban hành ngày nào?', opts: ['19/5/2026', '08/6/2026', '08/5/2026', '10/6/2026'], ans: 1,
+                exp: 'Ngày 08/6/2026.' },
+            { id: 4, q: 'Đến 2030, FDI đăng ký khoảng?', opts: ['100–150 tỉ', '200–300 tỉ', '300–400 tỉ', '400–500 tỉ'],
+                ans: 1, exp: '200–300 tỉ USD.' },
+            { id: 5, q: 'Đến 2045, FDI đóng góp bao nhiêu % GDP?', opts: ['20%', '25%', '30%', '35%'], ans: 2,
+                exp: '30% GDP.' },
+            { id: 6, q: '"6 dám" là yêu cầu cho ai?', opts: ['Cán bộ đối ngoại', 'Doanh nghiệp', 'Học sinh',
+                    'Công nhân'
+                ], ans: 0, exp: 'Cán bộ đối ngoại.' },
+            { id: 7, q: 'NQ 06 xác định đối ngoại là sự nghiệp của?', opts: ['Toàn Đảng, toàn dân, toàn quân',
+                    'Chỉ ngành ngoại giao', 'Chính phủ', 'Quốc hội'
+                ], ans: 0, exp: 'Toàn Đảng, toàn dân, toàn quân.' },
+            { id: 8, q: 'NQ 10 có bao nhiêu quan điểm chỉ đạo?', opts: ['4', '5', '6', '7'], ans: 2, exp: '6 quan điểm.' },
+            { id: 9, q: 'Đến 2030, tỉ lệ nội địa hóa đạt?', opts: ['30–35%', '45–50%', '55–60%', '60–65%'], ans: 1,
+                exp: '45–50%.' },
+            { id: 10, q: 'Đến 2030, bao nhiêu DN tham gia chuỗi cung ứng FDI?', opts: ['5.000', '10.000', '15.000',
+                    '20.000'
+                ], ans: 1, exp: '10.000 DN.' },
+            { id: 11, q: 'NQ 06 nhấn mạnh "ngoại giao công nghệ" tập trung vào?', opts: ['AI, chuyển đổi số',
+                    'Nông nghiệp', 'Dệt may', 'Cơ khí'
+                ], ans: 0, exp: 'AI, chuyển đổi số, dữ liệu lớn.' },
+            { id: 12, q: '"Thực lực như cái chiêng..." là câu nói của ai?', opts: ['Hồ Chí Minh', 'Võ Nguyên Giáp',
+                    'Tô Lâm', 'Phạm Văn Đồng'
+                ], ans: 0, exp: 'Chủ tịch Hồ Chí Minh.' },
+            { id: 13, q: 'Đến 2030, lao động qua đào tạo trong FDI đạt?', opts: ['60%', '70%', '80%', '90%'], ans: 2,
+                exp: '80%.' },
+            { id: 14, q: 'NQ 06 đề ra mấy nhiệm vụ trọng tâm?', opts: ['3', '4', '5', '6'], ans: 1, exp: '4 nhiệm vụ.' },
+            { id: 15, q: 'NQ 10 khuyến khích hình thành trung tâm nào?', opts: ['Tài chính quốc tế', 'Thể thao',
+                    'Giải trí', 'Du lịch'
+                ], ans: 0, exp: 'Trung tâm tài chính quốc tế.' },
+            { id: 16, q: 'Đến 2030, KCN sinh thái chiếm?', opts: ['5%', '8%', '10%', '12%'], ans: 2, exp: '10%.' },
+            { id: 17, q: 'Cơ quan ban hành NQ 06 và 10?', opts: ['Bộ Chính trị', 'Chính phủ', 'Quốc hội',
+                    'Thủ tướng'
+                ], ans: 0, exp: 'Bộ Chính trị.' },
+            { id: 18, q: '"Vừa hồng, vừa chuyên" là yêu cầu cho ai?', opts: ['Cán bộ đối ngoại', 'Công nhân',
+                    'Nông dân', 'Học sinh'
+                ], ans: 0, exp: 'Cán bộ đối ngoại.' },
+            { id: 19, q: 'NQ 10 chuyển từ ưu đãi đầu vào sang ưu đãi gắn với?', opts: ['Kết quả thực hiện',
+                    'Số vốn đăng ký', 'Diện tích đất', 'Số lao động'
+                ], ans: 0, exp: 'Kết quả thực hiện cam kết.' },
+            { id: 20, q: 'NQ 06 khẳng định đối ngoại phải trở thành lực lượng gì?', opts: ['Tiên phong kiến tạo',
+                    'Bảo vệ chủ quyền', 'Mở rộng lãnh thổ', 'Kinh tế'
+                ], ans: 0, exp: 'Tiên phong kiến tạo không gian phát triển mới.' },
+            { id: 21, q: 'Đến 2045, Việt Nam hướng tới thu nhập?', opts: ['Trung bình cao', 'Cao', 'Rất cao',
+                    'Trung bình'
+                ], ans: 1, exp: 'Thu nhập cao.' },
+            { id: 22, q: 'NQ 06 đề cập đến "ngoại giao cây tre" nhấn mạnh?', opts: ['Mềm dẻo, bản lĩnh',
+                    'Cứng rắn tuyệt đối', 'Trung lập', 'Thụ động'
+                ], ans: 0, exp: 'Mềm dẻo nhưng bản lĩnh, kiên định.' },
+            // ===== CÂU MỚI (23–30) =====
+            {
+                id: 23,
+                q: 'Theo NQ06, "Ngoại giao kinh tế" có vai trò gì?',
+                opts: ['Thu hút vốn đầu tư nước ngoài', 'Phục vụ phát triển kinh tế - xã hội và mở rộng không gian phát triển',
+                    'Chỉ tập trung vào xuất khẩu', 'Không liên quan đến an ninh'
+                ],
+                ans: 1,
+                exp: 'Ngoại giao kinh tế nhằm thu hút nguồn lực, công nghệ cao, mở rộng không gian phát triển cho đất nước.'
+            }, {
+                id: 24,
+                q: 'NQ10 đặt mục tiêu đến 2030, tỷ lệ nội địa hóa đạt bao nhiêu?',
+                opts: ['30-35%', '45-50%', '55-60%', '60-65%'],
+                ans: 1,
+                exp: 'Đến 2030, tỷ lệ nội địa hóa đạt 45-50%.'
+            }, {
+                id: 25,
+                q: 'Theo NQ06, nhiệm vụ "Định vị Việt Nam trên trường quốc tế" yêu cầu gì?',
+                opts: ['Chủ động tham gia cải cách thể chế quốc tế', 'Chỉ tham gia các hiệp định thương mại',
+                    'Không cần tham gia các diễn đàn đa phương', 'Tập trung vào quan hệ song phương'
+                ],
+                ans: 0,
+                exp: 'Cần chủ động, tích cực tham gia cải cách và xây dựng thể chế quốc tế, khu vực, định hình các quy tắc mới.'
+            }, {
+                id: 26,
+                q: 'NQ10 khuyến khích phát triển các dự án kinh tế nào?',
+                opts: ['Kinh tế xanh, kinh tế tuần hoàn, kinh tế số', 'Kinh tế truyền thống',
+                    'Kinh tế khai thác tài nguyên', 'Kinh tế gia công'
+                ],
+                ans: 0,
+                exp: 'NQ10 thúc đẩy kinh tế xanh, tuần hoàn, số và ứng dụng ESG.'
+            }, {
+                id: 27,
+                q: 'Theo NQ06, một trong những yêu cầu đối với cán bộ đối ngoại là "vừa hồng, vừa chuyên". "Hồng" ở đây có nghĩa là gì?',
+                opts: ['Bản lĩnh chính trị vững vàng', 'Có ngoại hình đẹp', 'Có nhiều quan hệ', 'Giỏi ngoại ngữ'],
+                ans: 0,
+                exp: '"Hồng" là bản lĩnh chính trị, trung thành với Đảng, Tổ quốc và nhân dân.'
+            }, {
+                id: 28,
+                q: 'NQ10 xác định mục tiêu đến 2045, FDI đóng góp bao nhiêu phần trăm GDP?',
+                opts: ['20%', '25%', '30%', '35%'],
+                ans: 2,
+                exp: 'Đến 2045, FDI đóng góp 30% GDP.'
+            }, {
+                id: 29,
+                q: 'NQ06 nhấn mạnh đối ngoại phải tiên phong trong lĩnh vực nào?',
+                opts: ['Bảo vệ Tổ quốc từ sớm, từ xa', 'Phát triển kinh tế', 'Văn hóa đối ngoại',
+                    'Tất cả các lĩnh vực'
+                ],
+                ans: 0,
+                exp: 'Đối ngoại tiên phong bảo vệ Tổ quốc từ sớm, từ xa, giữ vững môi trường hòa bình.'
+            }, {
+                id: 30,
+                q: 'Theo NQ10, việc đổi mới xúc tiến đầu tư cần tập trung vào các nhà đầu tư như thế nào?',
+                opts: ['Nhà đầu tư chiến lược, công nghệ cao', 'Nhà đầu tư nhỏ lẻ', 'Nhà đầu tư trong nước',
+                    'Nhà đầu tư không có kinh nghiệm'
+                ],
+                ans: 0,
+                exp: 'Xúc tiến đầu tư có trọng tâm, trọng điểm, gắn với đồng hành cùng nhà đầu tư chiến lược.'
+            }
         ];
 
-        let currentQuestions = [], userAnswers = {}, isSubmitted = false, score = 0;
-        function shuffleArray(arr) { for (let i = arr.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [arr[i], arr[j]] = [arr[j], arr[i]]; } return arr; }
+        // ===== CÁC HÀM XỬ LÝ TRẮC NGHIỆM =====
+        let currentQuestions = [],
+            userAnswers = {},
+            isSubmitted = false,
+            score = 0;
+
+        function shuffleArray(arr) { for (let i = arr.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i +
+                1));
+                [arr[i], arr[j]] = [arr[j], arr[i]]; } return arr; }
+
         function getRandomQuestions(bank, count = 10) { return shuffleArray([...bank]).slice(0, count); }
-        function getScores() { try { return JSON.parse(localStorage.getItem('quizScores_nq06_10')) || []; } catch { return []; } }
+
+        function getScores() { try { return JSON.parse(localStorage.getItem('quizScores_nq06_10')) || []; } catch { return [
+                ]; } }
+
         function saveScores(s) { localStorage.setItem('quizScores_nq06_10', JSON.stringify(s)); }
 
         function renderQuiz() {
             if (!currentQuestions.length) currentQuestions = getRandomQuestions(questionBank, 10);
-            isSubmitted = false; userAnswers = {};
+            isSubmitted = false;
+            userAnswers = {};
             document.getElementById('qCount').textContent = currentQuestions.length;
             const container = document.getElementById('questionsContainer');
             let html = '';
             currentQuestions.forEach((q, idx) => {
                 html += `
-                    <div class="q-item" data-idx="${idx}" style="background:#faf8f4; border-radius:16px; padding:16px 20px; margin-bottom:16px; border:2px solid transparent;">
-                        <div style="font-weight:700; margin-bottom:10px;"><span style="color:#B32317;">Câu ${idx+1}:</span> ${q.q}</div>
-                        <div style="display:flex; flex-direction:column; gap:6px;">
-                            ${q.opts.map((opt, oi) => `<label style="display:flex; align-items:center; gap:12px; padding:8px 14px; background:#fff; border-radius:10px; border:1px solid #e5e0d6; cursor:pointer;"><input type="radio" name="q${idx}" value="${oi}" /> ${String.fromCharCode(65+oi)}. ${opt}</label>`).join('')}
+                        <div class="q-item" data-idx="${idx}" style="background:#faf8f4; border-radius:16px; padding:16px 20px; margin-bottom:16px; border:2px solid transparent; transition:0.2s;">
+                            <div style="font-weight:700; margin-bottom:10px;"><span style="color:#B32317;">Câu ${idx+1}:</span> ${q.q}</div>
+                            <div style="display:flex; flex-direction:column; gap:6px;">
+                                ${q.opts.map((opt, oi) => `<label style="display:flex; align-items:center; gap:12px; padding:8px 14px; background:#fff; border-radius:10px; border:1px solid #e5e0d6; cursor:pointer; transition:0.2s;"><input type="radio" name="q${idx}" value="${oi}" /> ${String.fromCharCode(65+oi)}. ${opt}</label>`).join('')}
+                            </div>
+                            <div class="exp" style="display:none; margin-top:12px; padding:10px 14px; background:#fff7e6; border-left:4px solid #E8A317; border-radius:8px; font-size:14px;"></div>
                         </div>
-                        <div class="exp" style="display:none; margin-top:12px; padding:10px 14px; background:#fff7e6; border-left:4px solid #E8A317; border-radius:8px; font-size:14px;"></div>
-                    </div>
-                `;
+                    `;
             });
             container.innerHTML = html;
+
             document.querySelectorAll('.q-item input[type="radio"]').forEach(input => {
-                input.addEventListener('change', function() { const idx = parseInt(this.name.replace('q', '')); userAnswers[idx] = parseInt(this.value); });
+                input.addEventListener('change', function() {
+                    const idx = parseInt(this.name.replace('q', ''));
+                    userAnswers[idx] = parseInt(this.value);
+                });
             });
+
             document.getElementById('submitBtn').disabled = false;
             document.getElementById('submitBtn').innerHTML = 'Nộp bài';
             document.querySelector('.result-summary')?.remove();
@@ -1382,13 +1672,15 @@
         function submitQuiz() {
             if (isSubmitted) return;
             const total = currentQuestions.length;
-            let correct = 0;
             const selected = Object.keys(userAnswers).length;
             if (selected < total && !confirm(`Bạn mới trả lời ${selected}/${total} câu. Nộp bài?`)) return;
             isSubmitted = true;
             document.getElementById('submitBtn').disabled = true;
             document.getElementById('submitBtn').innerHTML = 'Đang chấm...';
+
+            let correct = 0;
             const items = document.querySelectorAll('.q-item');
+
             items.forEach((item, idx) => {
                 const q = currentQuestions[idx];
                 const ans = userAnswers[idx];
@@ -1396,34 +1688,66 @@
                 const exp = item.querySelector('.exp');
                 exp.innerHTML = `<strong>Giải thích:</strong> ${q.exp}`;
                 exp.style.display = 'block';
+
                 radios.forEach((radio, oi) => {
                     const label = radio.closest('label');
                     label.style.borderColor = '#e5e0d6';
                     label.style.background = '#fff';
-                    if (oi === q.ans) { label.style.borderColor = '#2d7d46'; label.style.background = '#e6f7eb'; }
-                    if (ans === oi && ans !== q.ans) { label.style.borderColor = '#B32317'; label.style.background = '#fde8e5'; }
+                    if (oi === q.ans) {
+                        label.style.borderColor = '#2d7d46';
+                        label.style.background = '#e6f7eb';
+                    }
+                    if (ans === oi && ans !== q.ans) {
+                        label.style.borderColor = '#B32317';
+                        label.style.background = '#fde8e5';
+                    }
                     radio.disabled = true;
                 });
-                if (ans === q.ans) { correct++; item.style.borderColor = '#2d7d46'; } else { item.style.borderColor = '#B32317'; }
+
+                if (ans === q.ans) {
+                    correct++;
+                    item.style.borderColor = '#2d7d46';
+                } else {
+                    item.style.borderColor = '#B32317';
+                }
             });
+
             score = Math.round((correct / total) * 10);
-            const rank = score >= 9 ? 'Xuất sắc' : score >= 8 ? 'Giỏi' : score >= 6.5 ? 'Khá' : score >= 5 ? 'Trung bình' : 'Cần ôn tập';
+            const rank = score >= 9 ? 'Xuất sắc' : score >= 8 ? 'Giỏi' : score >= 6.5 ? 'Khá' : score >= 5 ?
+                'Trung bình' : 'Cần ôn tập';
+
             const summary = document.createElement('div');
             summary.className = 'result-summary';
-            summary.style.cssText = 'background:#0B1E42; color:#fff; padding:16px 24px; border-radius:16px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; margin-bottom:20px;';
-            summary.innerHTML = `<div><span style="font-size:28px; font-weight:800;">Điểm: <span style="color:#E8A317;">${score}</span> / 10</span> <span style="font-size:14px; opacity:0.8;">(Đúng ${correct}/${total})</span></div><div style="background:#E8A317; color:#0B1E42; padding:4px 20px; border-radius:40px; font-weight:700;">${rank}</div>`;
-            document.getElementById('questionsContainer').parentNode.insertBefore(summary, document.getElementById('questionsContainer'));
+            summary.style.cssText =
+                'background:#0B1E42; color:#fff; padding:16px 24px; border-radius:16px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; margin-bottom:20px;';
+            summary.innerHTML =
+                `<div><span style="font-size:28px; font-weight:800;">Điểm: <span style="color:#E8A317;">${score}</span> / 10</span> <span style="font-size:14px; opacity:0.8;">(Đúng ${correct}/${total})</span></div><div style="background:#E8A317; color:#0B1E42; padding:4px 20px; border-radius:40px; font-weight:700;">${rank}</div>`;
+            document.getElementById('questionsContainer').parentNode.insertBefore(summary, document.getElementById(
+                'questionsContainer'));
             document.getElementById('submitBtn').innerHTML = 'Đã nộp';
-            const scores = getScores(); scores.push(score); saveScores(scores);
+
+            const scores = getScores();
+            scores.push(score);
+            saveScores(scores);
             updateStats();
         }
 
-        function resetQuiz() { document.querySelector('.result-summary')?.remove(); currentQuestions = getRandomQuestions(questionBank, 10); renderQuiz(); }
+        function resetQuiz() {
+            document.querySelector('.result-summary')?.remove();
+            currentQuestions = getRandomQuestions(questionBank, 10);
+            renderQuiz();
+        }
 
         function updateStats() {
             const scores = getScores();
             document.getElementById('totalAttempts').textContent = scores.length;
-            if (scores.length === 0) { document.getElementById('avgScore').textContent = '--'; document.getElementById('maxScore').textContent = '--'; document.getElementById('minScore').textContent = '--'; drawChart([]); return; }
+            if (scores.length === 0) {
+                document.getElementById('avgScore').textContent = '--';
+                document.getElementById('maxScore').textContent = '--';
+                document.getElementById('minScore').textContent = '--';
+                drawChart([]);
+                return;
+            }
             const sum = scores.reduce((a, b) => a + b, 0);
             document.getElementById('avgScore').textContent = (sum / scores.length).toFixed(1);
             document.getElementById('maxScore').textContent = Math.max(...scores);
@@ -1434,14 +1758,22 @@
         function drawChart(scores) {
             const canvas = document.getElementById('scoreChart');
             const ctx = canvas.getContext('2d');
-            const w = canvas.width, h = canvas.height;
+            const w = canvas.width || 280;
+            const h = canvas.height || 120;
             ctx.clearRect(0, 0, w, h);
-            if (scores.length === 0) { ctx.fillStyle = '#999'; ctx.font = '14px Inter'; ctx.textAlign = 'center'; ctx.fillText('Chưa có dữ liệu', w/2, h/2+5); return; }
+            if (scores.length === 0) {
+                ctx.fillStyle = '#999';
+                ctx.font = '14px Inter';
+                ctx.textAlign = 'center';
+                ctx.fillText('Chưa có dữ liệu', w / 2, h / 2 + 5);
+                return;
+            }
             const freq = Array(11).fill(0);
             scores.forEach(s => { const idx = Math.round(s); if (idx >= 0 && idx <= 10) freq[idx]++; });
             const maxFreq = Math.max(...freq, 1);
             const pad = { top: 10, bottom: 20, left: 6, right: 6 };
-            const chartW = w - pad.left - pad.right, chartH = h - pad.top - pad.bottom;
+            const chartW = w - pad.left - pad.right,
+                chartH = h - pad.top - pad.bottom;
             const barW = Math.min(chartW / 11, 18);
             freq.forEach((count, i) => {
                 const x = pad.left + i * (chartW / 11) + (chartW / 11 - barW) / 2;
@@ -1451,40 +1783,69 @@
                 ctx.beginPath();
                 ctx.roundRect(x, y, barW, barH, 4);
                 ctx.fill();
-                if (count > 0) { ctx.fillStyle = '#0B1E42'; ctx.font = '9px Inter'; ctx.textAlign = 'center'; ctx.fillText(count, x + barW/2, y - 3); }
+                if (count > 0) {
+                    ctx.fillStyle = '#0B1E42';
+                    ctx.font = '9px Inter';
+                    ctx.textAlign = 'center';
+                    ctx.fillText(count, x + barW / 2, y - 3);
+                }
             });
-            ctx.fillStyle = '#888'; ctx.font = '8px Inter'; ctx.textAlign = 'center';
-            for (let i = 0; i <= 10; i += 2) { const x = pad.left + i * (chartW / 10); ctx.fillText(i, x, h - 2); }
+            ctx.fillStyle = '#888';
+            ctx.font = '8px Inter';
+            ctx.textAlign = 'center';
+            for (let i = 0; i <= 10; i += 2) {
+                const x = pad.left + i * (chartW / 10);
+                ctx.fillText(i, x, h - 2);
+            }
         }
+
+        // Polyfill roundRect
         if (!CanvasRenderingContext2D.prototype.roundRect) {
             CanvasRenderingContext2D.prototype.roundRect = function(x, y, w, h, r) {
-                if (r > w/2) r = w/2; if (r > h/2) r = h/2;
-                this.moveTo(x + r, y); this.lineTo(x + w - r, y); this.quadraticCurveTo(x + w, y, x + w, y + r);
-                this.lineTo(x + w, y + h - r); this.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
-                this.lineTo(x + r, y + h); this.quadraticCurveTo(x, y + h, x, y + h - r);
-                this.lineTo(x, y + r); this.quadraticCurveTo(x, y, x + r, y); this.closePath(); return this;
+                if (r > w / 2) r = w / 2;
+                if (r > h / 2) r = h / 2;
+                this.moveTo(x + r, y);
+                this.lineTo(x + w - r, y);
+                this.quadraticCurveTo(x + w, y, x + w, y + r);
+                this.lineTo(x + w, y + h - r);
+                this.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+                this.lineTo(x + r, y + h);
+                this.quadraticCurveTo(x, y + h, x, y + h - r);
+                this.lineTo(x, y + r);
+                this.quadraticCurveTo(x, y, x + r, y);
+                this.closePath();
+                return this;
             };
         }
 
-        // KHỞI CHẠY
+        // ===== KHỞI CHẠY =====
         document.addEventListener('DOMContentLoaded', function() {
             renderPodcast();
             renderQuiz();
+
             document.getElementById('submitBtn').addEventListener('click', submitQuiz);
             document.getElementById('resetBtn').addEventListener('click', resetQuiz);
+
             const canvas = document.getElementById('scoreChart');
             canvas.width = canvas.parentElement.clientWidth - 32 || 280;
             canvas.height = 120;
             updateStats();
-            window.addEventListener('resize', () => { canvas.width = canvas.parentElement.clientWidth - 32 || 280; canvas.height = 120; updateStats(); });
 
+            window.addEventListener('resize', () => {
+                canvas.width = canvas.parentElement.clientWidth - 32 || 280;
+                canvas.height = 120;
+                updateStats();
+            });
+
+            // Solution buttons
             document.querySelectorAll('.btn-solution').forEach(btn => {
                 btn.addEventListener('click', function() {
                     const targetId = this.dataset.target;
                     const solution = document.getElementById(targetId);
                     if (solution) {
                         solution.classList.toggle('show');
-                        this.textContent = solution.classList.contains('show') ? 'Ẩn cách xử lý ↑' : 'Xem cách xử lý →';
+                        this.textContent = solution.classList.contains('show') ? 'Ẩn cách xử lý ↑' :
+                            'Xem cách xử lý →';
                         this.classList.toggle('active');
                     }
                 });
